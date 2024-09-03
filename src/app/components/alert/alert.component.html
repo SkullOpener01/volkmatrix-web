@@ -1,0 +1,11 @@
+<div *ngIf="message" class="alert alert-{{type}} alert-dismissible fade show" role="alert">
+  {{ message }}
+
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeAlert()"></button>
+  <div class="progress mt-2">
+    <div class="progress-bar bg-{{type}}" [style.width.%]="progress"  role="progressbar" aria-valuemin="0"
+         aria-valuemax="100"></div>
+  </div>
+</div>
+
+

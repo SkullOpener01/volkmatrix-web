@@ -1,0 +1,42 @@
+.navbar {
+  background-color: white;
+  //border: 1px solid black;
+  color: black;
+}
+
+.navbar-brand {
+  color: black;
+}
+
+.nav-link, .dropdown-item {
+  color: black;
+}
+
+.nav-link:hover, .dropdown-item:hover {
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+}
+
+.btn-outline-dark {
+  color: black;
+  border-color: black;
+}
+
+.btn-outline-dark:hover {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+.btn-dark {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+.btn-dark:hover {
+  background-color: white;
+  color: black;
+  border-color: black;
+}

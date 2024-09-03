@@ -1,0 +1,12 @@
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+  /*padding-bottom: 10px; !* Add padding to make space for the progress bar *!*/
+}
+
+.progress {
+  height: 4px;
+}
+

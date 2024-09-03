@@ -1,0 +1,36 @@
+
+.ezy__faq7-heading {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 25px;
+  color: var(--bs-body-color);
+}
+
+@media (min-width: 768px) {
+  .ezy__faq7-heading {
+    font-size: 45px;
+    line-height: 45px;
+  }
+}
+
+.ezy__faq7-sub-heading {
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--bs-body-color);
+  opacity: 0.7;
+}
+.ezy__faq7-item {
+  background-color: var(--ezy-item-bg);
+  margin-bottom: 1px;
+}
+
+
+
+.btn {
+  padding: 12px 30px;
+}
+
+
+.card-body {
+  background-color: mix(#EBEAE8, #ffffff, 80%); // Mix with white to lighten
+}

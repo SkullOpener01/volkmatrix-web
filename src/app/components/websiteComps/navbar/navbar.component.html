@@ -1,0 +1,35 @@
+<div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <div class="col-md-3 mb-2 mb-md-0">
+      <a href="/web">
+        <img src="icons/logo2-blk.svg" alt="Logo" class="d-inline-block align-text-top">
+      </a>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="/web" class="nav-link px-2 link-secondary">Home</a></li>
+      <li><a href="/web" class="nav-link px-2" fragment="featuresSec">Features</a></li>
+
+      <!-- Products Dropdown -->
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link px-2 dropdown-toggle" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Products
+        </a>
+        <ul class="dropdown-menu p-3 " aria-labelledby="productsDropdown">
+          <li><a class="dropdown-item" href="/arriving">SMS</a></li>
+          <li><a class="dropdown-item" href="/arriving">Voice</a></li>
+          <li><a class="dropdown-item" href="/arriving">WhatsApp</a></li>
+          <li><a class="dropdown-item" href="/arriving">Email</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/faq" class="nav-link px-2">FAQs</a></li>
+      <li><a href="/about" class="nav-link px-2">About</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+<!--      <button type="button" class="btn btn-outline-dark me-2">Login</button>-->
+      <button type="button" class="btn btn-dark" routerLink="/demoReq">Request a demo</button>
+    </div>
+  </header>
+</div>
