@@ -5,6 +5,7 @@ import {NavbarComponent} from "../navbar/navbar.component";
 import {FooterComponent} from "../footer/footer.component";
 import {NgIf} from "@angular/common";
 import {SharedService} from "../../../services/shared.service";
+import {WebsiteService} from "../website.service";
 
 @Component({
   selector: 'app-demo-request',
@@ -22,7 +23,7 @@ export class DemoRequestComponent {
 
   requestForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, public alertService: AlertService, public shredService : SharedService,) {
+  constructor(private formBuilder: FormBuilder, public alertService: AlertService, public shredService : SharedService, private websiteService : WebsiteService) {
     this.requestForm = this.formBuilder.group({
       name: new FormControl('', [Validators.required]),
       mobile: new FormControl('', [
@@ -65,13 +66,31 @@ export class DemoRequestComponent {
     }
 
     console.log("request form {}", this.requestForm.value);
-    this.alertService.showAlert("Demo requested successfully", "success");
+    // this.alertService.showAlert("Demo requested successfully", "success");
 
 
-    setTimeout(() => {
-      this.requestForm.reset();
-      window.location.href = '/web';
-    }, 5000);
+    this.websiteService.demoRequestNew(this.requestForm.value).subscribe({
+      next : (response: any) => {
+        if (response.statusCode == 200) {
+          this.alertService.showApiAlert(response.message, "success");
+          setTimeout(() => {
+            this.requestForm.reset();
+            window.location.href = '/web';
+          }, 3000);
 
+        }
+      },
+      error: (error: any) => {
+        this.alertService.showApiAlert(error.message, "danger");
+      }
+    });
+
+
+
+  }
+
+
+  testAlert() {
+    this.alertService.showApiAlert("Details saved successfully", "error");
   }
 }

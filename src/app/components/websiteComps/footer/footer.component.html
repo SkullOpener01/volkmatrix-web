@@ -47,8 +47,8 @@
           <p>Get the latest updates and insights from VolkMatrix.</p>
           <div class="d-flex flex-column flex-sm-row w-100 gap-2">
             <label for="newsletter1" class="visually-hidden">Email address</label>
-            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-            <button class="btn btn-dark" type="button">Subscribe</button>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address" [(ngModel)]="email" name="email" required>
+            <button class="btn btn-dark" type="button" (click)="subscribe()">Subscribe</button>
           </div>
         </form>
       </div>
