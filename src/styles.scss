@@ -19,7 +19,17 @@ body{
  text-transform: uppercase;
 }
 
+
+.custom-subHeading{
+  font-size: 18px;
+  line-height: 1.4;
+  opacity: 0.75;
+}
+
 @media (min-width: 768px) {
+  .custom-subHeading {
+    font-size: 20px;
+  }
   .custom-h1 {
     font-size: 45px;
     line-height: 45px;

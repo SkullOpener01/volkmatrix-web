@@ -5,6 +5,7 @@ import {RouterLink} from "@angular/router";
 import {FeaturesComponent} from "../features/features.component";
 import {TestimonialsComponent} from "../testimonials/testimonials.component";
 import {TeamComponent} from "../team/team.component";
+import {NumbersComponent} from "../numbers/numbers.component";
 
 interface Testimonial {
   image: string;
@@ -21,7 +22,8 @@ interface Testimonial {
     RouterLink,
     FeaturesComponent,
     TestimonialsComponent,
-    TeamComponent
+    TeamComponent,
+    NumbersComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

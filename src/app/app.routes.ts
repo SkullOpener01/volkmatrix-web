@@ -7,6 +7,7 @@ import {AllProductsComponent} from "./components/websiteComps/products/all-produ
 import {AboutComponent} from "./components/websiteComps/about/about.component";
 import {DemoRequestComponent} from "./components/websiteComps/demo-request/demo-request.component";
 import {ComingSoonComponent} from "./components/websiteComps/coming-soon/coming-soon.component";
+import {NumbersComponent} from "./components/websiteComps/numbers/numbers.component";
 
 export const routes: Routes = [
   // { path: '', component: LandingPageComponent },
@@ -19,6 +20,7 @@ export const routes: Routes = [
   {path: 'about', component: AboutComponent },
   {path: 'demoReq', component: DemoRequestComponent },
   {path: 'arriving', component: ComingSoonComponent },
+  {path: 'numbers', component: NumbersComponent },
 
 
 ];

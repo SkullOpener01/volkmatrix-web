@@ -51,6 +51,7 @@ export class AlertComponent implements OnInit {
   closeAlert() {
     this.message = null;
     this.progress = 100;
+    this.alertPopup = false;
   }
 
   // Method to show the API popup
@@ -76,8 +77,8 @@ this.closeNotification();
   closeNotification() {
 
 
-    const duration = 3000; // 5 seconds
-    const interval = 50; // 50 ms interval
+    const duration = 3000; // 3 seconds
+    const interval = 300; // 100 ms interval
     const decrement = 100 / (duration / interval);
 
     const intervalId = setInterval(() => {

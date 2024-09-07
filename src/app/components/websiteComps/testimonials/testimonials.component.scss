@@ -83,6 +83,12 @@
   box-shadow: var(--ezy-item-shadow);
   border-radius: 20px;
   border: none;
+  transition: 0.4s;
+}
+
+.ezy__testimonial7_sb3RYj2r-item:hover {
+  background-color: #EBEAE8;
+  transform: translateY(10px);
 }
 
 .ezy__testimonial7_sb3RYj2r-title {
@@ -144,3 +150,10 @@
 //.card{
 //  background-color: #EBEAE8;
 //}
+
+
+.star-icon {
+  width: 24px; /* Adjust the size of the stars */
+  height: auto;
+  margin-right: 2px; /* Add spacing between stars if needed */
+}

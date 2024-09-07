@@ -1,0 +1,103 @@
+.ezy__numbers15_1cBX8vKV {
+  /* Bootstrap variables */
+  --bs-body-color: #202224;
+  --bs-body-bg: #EBEAE8;
+
+  /* Easy Frontend variables */
+  --ezy-theme-color: #EBEAE8;
+  --ezy-theme-color-rgb: #EBEAE8;
+  --ezy-box-shadow: 0px 6px 44px rgba(173, 174, 197, 0.2);
+  --ezy-card-bg: rgb(255, 255, 255);
+
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  overflow: hidden;
+  position: relative;
+  padding: 60px 0;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .ezy__numbers15_1cBX8vKV {
+    padding: 100px 0;
+  }
+}
+
+/* Gray Block Style */
+.gray .ezy__numbers15_1cBX8vKV,
+.ezy__numbers15_1cBX8vKV.gray {
+  /* Bootstrap variables */
+  --bs-body-bg: rgb(246, 246, 246);
+
+  /* Easy Frontend variables */
+  --ezy-card-bg: rgb(255, 255, 255);
+  --ezy-box-shadow: 0px 6px 44px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Gray Block Style */
+.dark-gray .ezy__numbers15_1cBX8vKV,
+.ezy__numbers15_1cBX8vKV.dark-gray {
+  /* Bootstrap variables */
+  --bs-body-color: #ffffff;
+  --bs-body-bg: rgb(30, 39, 53);
+
+  /* Easy Frontend variables */
+  --ezy-card-bg: rgb(11, 23, 39);
+  --ezy-box-shadow: 0px 6px 44px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Block Style */
+.dark .ezy__numbers15_1cBX8vKV,
+.ezy__numbers15_1cBX8vKV.dark {
+  /* Bootstrap variables */
+  --bs-body-color: #ffffff;
+  --bs-body-bg: rgb(11, 23, 39);
+
+  /* Easy Frontend variables */
+  --ezy-card-bg: rgb(30, 39, 53);
+  --ezy-box-shadow: 0px 6px 44px rgba(0, 0, 0, 0.2);
+}
+
+.ezy__numbers15_1cBX8vKV-heading {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+}
+.ezy__numbers15_1cBX8vKV-sub-heading {
+  font-size: 18px;
+  line-height: 1.4;
+  opacity: 0.75;
+}
+@media (min-width: 768px) {
+  .ezy__numbers15_1cBX8vKV-heading {
+    font-size: 55px;
+  }
+  .ezy__numbers15_1cBX8vKV-sub-heading {
+    font-size: 20px;
+  }
+}
+
+.ezy__numbers15_1cBX8vKV-card {
+  background-color: var(--ezy-card-bg);
+  box-shadow: var(--ezy-box-shadow);
+  border-radius: 15px;
+  transition: 0.4s;
+}
+.ezy__numbers15_1cBX8vKV-card:hover {
+  background-color: rgba(var(--ezy-theme-color-rgb), 0.2);
+  box-shadow: var(--ezy-box-shadow);
+  transform: translateY(10px);
+}
+.ezy__numbers15_1cBX8vKV-card h2 {
+  font-size: 45px;
+}
+
+.ezy__numbers15_1cBX8vKV-bg {
+  background-color: rgba(var(--ezy-theme-color-rgb), 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: -1;
+}

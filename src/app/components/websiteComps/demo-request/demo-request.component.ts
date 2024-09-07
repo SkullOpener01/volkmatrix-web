@@ -43,25 +43,25 @@ export class DemoRequestComponent {
 
 
     if (this.requestForm.value.name == null || this.requestForm.value.name == '') {
-      this.alertService.showAlert("please enter full name", "warning")
+      this.alertService.showAlert("please enter full name", "dark")
       return;
     }
     if (this.requestForm.value.email == null || this.requestForm.value.email == '') {
-      this.alertService.showAlert("please enter valid email", "danger")
+      this.alertService.showAlert("please enter valid email", "dark")
       return;
     }
     if (this.requestForm.value.message == null || this.requestForm.value.message == '') {
-      this.alertService.showAlert("please enter a message ", "danger")
+      this.alertService.showAlert("please enter a message ", "dark")
       return;
     }
 
     if (this.requestForm.value.connectExpert == false) {
-      this.alertService.showAlert(" You must agree to connect with an expert.", "warning")
+      this.alertService.showAlert(" You must agree to connect with an expert.", "dark")
       return;
     }
 
     if (this.requestForm.invalid) {
-      this.alertService.showAlert("please enter valid details", "danger")
+      this.alertService.showAlert("please enter valid details", "dark")
       return;
     }
 

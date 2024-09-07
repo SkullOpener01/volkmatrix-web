@@ -14,7 +14,7 @@ export class AlertService {
   // }
 
   // Trigger a simple alert
-  showAlert(message: string, type: 'success' | 'danger' |'dark' | 'warning' | 'secondary' | 'primary') {
+  showAlert(message: string, type: 'success' | 'danger' |'dark' | 'warning' | 'secondary' | 'primary' | 'light') {
     this.alertSubject.next({ message, type, notificationType: 'alert' });
   }
 

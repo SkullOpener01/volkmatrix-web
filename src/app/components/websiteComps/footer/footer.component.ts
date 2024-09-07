@@ -42,7 +42,7 @@ export class FooterComponent {
       });
 
     }else{
-      this.alertService.showAlert("Please enter a valid email address", "danger");
+      this.alertService.showAlert("Please enter a valid email address", "dark");
       return;
     }
   }
