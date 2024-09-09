@@ -16,7 +16,7 @@ body{
   font-size: 25px;
   line-height: 25px;
   //color: var(--bs-body-color);
- text-transform: uppercase;
+ //text-transform: uppercase;
 }
 
 
@@ -33,7 +33,23 @@ body{
   .custom-h1 {
     font-size: 45px;
     line-height: 45px;
-    text-transform: uppercase;
+    //text-transform: uppercase;
   }
 }
 
+// Black checkbox CSS
+
+.form-check-input {
+  //background-color: black;
+  border-color: black;
+}
+
+.form-check-input:checked {
+  background-color: black;
+  border-color: black;
+}
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25); /* Adjust color and opacity */
+}
+
+//-----------------------------
