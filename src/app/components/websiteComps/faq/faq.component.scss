@@ -34,3 +34,27 @@
 .card-body {
   background-color: mix(#EBEAE8, #ffffff, 80%); // Mix with white to lighten
 }
+
+
+.responsive-image {
+  width: 100%;      /* Ensures the image takes up the full width of its container */
+  height: auto;     /* Maintains aspect ratio */
+}
+
+@media (max-width: 768px) {
+  .responsive-image {
+    width: 100%;   /* Adjust to smaller screens */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .responsive-image {
+    width: 80%;    /* Slightly smaller on medium screens */
+  }
+}
+
+@media (min-width: 1201px) {
+  .responsive-image {
+    width: 60%;    /* Medium width for larger screens */
+  }
+}
