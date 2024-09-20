@@ -54,14 +54,13 @@
             </div>
           </div>
         </div>
-<!--        <div class=" col-lg-5 mb-5 mb-lg-0 card-body mt-3"  >-->
+        <!--        <div class=" col-lg-5 mb-5 mb-lg-0 card-body mt-3"  >-->
 
-<!--          <img src="/images/demoReq.jpg" width="100%" height="100%">-->
-<!--        </div>-->
+        <!--          <img src="/images/demoReq.jpg" width="100%" height="100%">-->
+        <!--        </div>-->
 
 
       </div>
-
 
 
       <div class="col-lg-5">
@@ -75,7 +74,7 @@
                 <label class="form-label">Name</label>
                 <input type="text" class="form-control" placeholder="Enter Name" formControlName="name" required>
                 <div *ngIf="requestForm.get('name')?.invalid && requestForm.get('name')?.touched">
-                  <p class="text-warning" >Name is required.</p>
+                  <p class="text-warning">Name is required.</p>
                 </div>
               </div>
               <div class="mb-3">
@@ -83,48 +82,83 @@
                 <input type="text" class="form-control" placeholder="Enter Mobile" formControlName="mobile" required
                        (keydown)="shredService.numberOnly($event)" maxlength="10">
                 <div *ngIf="requestForm.get('mobile')?.invalid && requestForm.get('mobile')?.touched">
-                  <p class="text-warning" *ngIf="requestForm.get('mobile')?.errors?.['required']">Mobile number is required.</p>
-                  <p class="text-warning" *ngIf="requestForm.get('mobile')?.errors?.['minlength']">Mobile number must be at least 10 digits.</p>
-                  <p class="text-warning" *ngIf="requestForm.get('mobile')?.errors?.['maxlength']">Mobile number cannot exceed 10 digits.</p>
-                  <p class="text-warning" *ngIf="requestForm.get('mobile')?.errors?.['pattern']">Mobile number must contain only digits.</p>
+                  <p class="text-warning" *ngIf="requestForm.get('mobile')?.errors?.['required']">Mobile number is
+                    required.</p>
+                  <p class="text-warning" *ngIf="requestForm.get('mobile')?.errors?.['minlength']">Mobile number must be
+                    at least 10 digits.</p>
+                  <p class="text-warning" *ngIf="requestForm.get('mobile')?.errors?.['maxlength']">Mobile number cannot
+                    exceed 10 digits.</p>
+                  <p class="text-warning" *ngIf="requestForm.get('mobile')?.errors?.['pattern']">Mobile number must
+                    contain only digits.</p>
                 </div>
               </div>
               <div class="mb-3">
                 <label class="form-label">Business Email</label>
                 <input type="email" class="form-control" placeholder="Enter Email" formControlName="email" required>
                 <div *ngIf="requestForm.get('email')?.invalid && requestForm.get('email')?.touched">
-                  <p class="text-warning" >Business Email is required.</p>
+                  <p class="text-warning">Business Email is required.</p>
                 </div>
               </div>
+
+              <div class="mb-3">
+                <label class="form-label">Demo Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  formControlName="demoDate"
+                  [min]="minDate"
+                />
+                <div *ngIf="requestForm.get('demoDate')?.invalid && requestForm.get('demoDate')?.touched">
+                  <p class="text-warning">Demo Date is required.</p>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Demo Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  formControlName="demoTime"
+                  [disabled]="isPastDateSelected"
+                />
+                <div *ngIf="requestForm.get('demoTime')?.invalid && requestForm.get('demoTime')?.touched">
+                  <p class="text-warning">Demo Time is required.</p>
+                </div>
+              </div>
+
+
+
               <div class="mb-3">
                 <label class="form-label">Message</label>
                 <textarea name="message" formControlName="message" class="form-control"
                           placeholder="Type your message here (e.g., questions, feedback, or request for support)"
                           rows="3"></textarea>
                 <div *ngIf="requestForm.get('message')?.invalid && requestForm.get('message')?.touched">
-                  <p class="text-warning" >Message is required.</p>
+                  <p class="text-warning">Message is required.</p>
                 </div>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" formControlName="connectExpert">
-                <label class="form-check-label" >
+                <label class="form-check-label">
                   Connect me with an expert!
                 </label>
-                <p class="text-muted mt-1" style="font-size: 11px">I’d like to learn more about VolkMatrix's communication solutions or
+                <p class="text-muted mt-1" style="font-size: 11px">I’d like to learn more about VolkMatrix's
+                  communication solutions or
                   see a
                   personalized demo. *</p>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" formControlName="keepInformed">
-                <label class="form-check-label " >
+                <label class="form-check-label ">
                   Keep me informed!
                 </label>
-                <p class="text-muted mt-1" style="font-size: 11px">Sign me up for updates from VolkMatrix (products, services, blogs, and
+                <p class="text-muted mt-1" style="font-size: 11px">Sign me up for updates from VolkMatrix (products,
+                  services, blogs, and
                   events). I can update my preferences or unsubscribe at any time.</p>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" formControlName="wapNotification" >
-                <label class="form-check-label" >
+                <input class="form-check-input" type="checkbox" value="" formControlName="wapNotification">
+                <label class="form-check-label">
                   Receive WhatsApp Notifications
                 </label>
                 <p class="text-muted mt-1" style="font-size: 11px">I’d like to receive WhatsApp notifications from
@@ -134,7 +168,7 @@
               </div>
               <div class="text-start mt-4">
                 <button type="submit" class="btn btn-dark" (click)="submit()">Request demo</button>
-<!--                <button type="submit" class="btn btn-dark" (click)="testAlert()">Test Alerts demo</button>-->
+                <!--                <button type="submit" class="btn btn-dark" (click)="testAlert()">Test Alerts demo</button>-->
               </div>
 
               <div>
