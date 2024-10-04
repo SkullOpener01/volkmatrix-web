@@ -1,0 +1,121 @@
+
+<div class="container">
+  <div class="row">
+    <section class="discussions">
+      <div class="discussion search">
+        <div class="w-100">
+          <div class="row justify-content-center align-items-center">
+            <div class="form">
+              <label for="searchInput" class="visually-hidden">Search Users</label>
+              <input
+                type="text"
+                id="searchInput"
+                class="form-control form-input"
+                (keyup)="searchUser($event)"
+                placeholder="Search anything..."
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngFor="let user of users" class="discussion" (click)="selectUser(user)">
+        <div class="photo" style="background-image: url('https://www.volkmatrix.com/icons/logo_black.png');">
+          <div class="online"></div>
+        </div>
+        <div class="desc-contact">
+          <p class="name">{{ user.name }}</p>
+          <p class="message">{{ user.number }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="chat-container">
+      <div class="header-chat">
+        <i class="icon fa fa-user-o" aria-hidden="true" aria-label="User Icon"></i>
+        <p class="name">{{ selectedUser?.name || 'Select a user' }}</p>
+        <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true" aria-label="More Options"></i>
+      </div>
+
+      <div class="messages-chat" id="messages-container">
+
+
+        <div *ngFor="let message of chatMessages">
+          <div *ngIf="message.messageBy === 'business'" class="message message-business">
+            <div class="message-bubble">
+              <p class="text">
+                <ng-container
+                  *ngIf="['marketing', 'utility', 'authentication'].includes(message.messageTempType); else defaultMessage">
+                  {{ message.templateName }}
+                </ng-container>
+                <ng-template #defaultMessage>
+                  {{ message.msgText }}
+                </ng-template>
+              </p>
+            </div>
+            <div class="time col">
+              <p>{{ message.currentMsgStatus }}</p>
+            </div>
+          </div>
+
+          <div *ngIf="message.messageBy === 'user' " class="message message-user">
+            <div class="message-bubble " *ngIf="!message.reactedOnMsgId">
+              <p class="text" *ngIf="message.msgText != null && message.msgText != '' ">{{ message.msgText }}</p>
+              <ng-container *ngIf="message.mediaType">
+                <ng-container *ngIf="message.mediaType === 'image'">
+                  <img [src]="message.mediaFileUrl" alt="Image" class="chat-media"/>
+                </ng-container>
+                <ng-container *ngIf="message.mediaType === 'video'">
+                  <video controls class="chat-media">
+                    <source [src]="message.mediaFileUrl" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </ng-container>
+                <ng-container *ngIf="message.mediaType === 'audio'">
+                  <audio controls class="chat-media">
+                    <source [src]="message.mediaFileUrl" type="audio/mpeg">
+                    Your browser does not support the audio tag.
+                  </audio>
+                </ng-container>
+                <ng-container *ngIf="message.mediaType === 'document'">
+                  <a [href]="message.mediaFileUrl" target="_blank" class="chat-media">Download Document</a>
+                </ng-container>
+              </ng-container>
+              <div class="time align-items-end " >
+                <p>{{ message.userMsgTime }}</p>
+              </div>
+            </div>
+
+
+            <!-- Display Reaction Message -->
+            <ng-container *ngIf="message.reactedOnMsgId != null ">
+              <div class="reaction-message" style="border-left: 3px solid #25D366;"> <!-- WhatsApp Green -->
+                <p class="original-message">Reacted to: {{ getOriginalMessageText(message.reactedOnMsgId) }}</p>
+                <p class="reaction">{{ message.emoji }}</p>
+                <div class="time">
+                  <p>{{ message.userMsgTime }}</p>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-chat">
+        <i class="bi bi-emoji-smile clickable" style="font-size:25pt;" aria-hidden="true" aria-label="Emoji Icon"></i>
+        <input type="text" class="write-message" placeholder="Type your message here" (keyup.enter)="sendMessage()"/>
+
+        <!-- Attachment Button -->
+        <label class="icon bi bi-paperclip clickable" aria-hidden="true" aria-label="Attach File" style="font-size:25pt;">
+          <input type="file" (change)="onFileSelected($event)" style="display: none;" />
+        </label>
+
+        <!-- Send Button -->
+        <i class="icon send bi bi-send clickable" aria-hidden="true" aria-label="Send Message" (click)="sendMessage()"></i>
+      </div>
+
+    </section>
+  </div>
+</div>
+
+

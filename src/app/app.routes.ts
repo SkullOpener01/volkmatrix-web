@@ -12,6 +12,7 @@ import {SmsComponent} from "./components/websiteComps/products/sms/sms.component
 import {VoiceComponent} from "./components/websiteComps/products/voice/voice.component";
 import {WhatsappComponent} from "./components/websiteComps/products/whatsapp/whatsapp.component";
 import {EmailComponent} from "./components/websiteComps/products/email/email.component";
+import {UserChatScreenComponent} from "./components/chatComps/user-chat-screen/user-chat-screen.component";
 
 export const routes: Routes = [
   // { path: '', component: LandingPageComponent },
@@ -29,6 +30,7 @@ export const routes: Routes = [
   {path: 'voice', component: VoiceComponent },
   {path: 'wap', component: WhatsappComponent },
   {path: 'email', component: EmailComponent },
+  {path: 'vm-chat', component: UserChatScreenComponent },
 
 
 ];
