@@ -22,6 +22,10 @@
   overflow-y: auto; /* Scroll if user list exceeds */
 }
 
+.text {
+  white-space: pre-wrap;
+}
+
 .discussion {
   display: flex;
   align-items: center;

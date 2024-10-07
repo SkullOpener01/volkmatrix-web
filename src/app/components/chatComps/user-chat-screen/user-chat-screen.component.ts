@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {ChatService} from "../chat.service";
 import {AlertService} from "../../../services/alert.service";
+import {WhatsappTextFormatterPipe} from "../../../pipes/whatsappTextFormatterPipe";
 
 @Component({
   selector: 'app-user-chat-screen',
@@ -9,7 +10,8 @@ import {AlertService} from "../../../services/alert.service";
   imports: [
     NgClass,
     NgForOf,
-    NgIf
+    NgIf,
+    WhatsappTextFormatterPipe,
   ],
   templateUrl: './user-chat-screen.component.html',
   styleUrl: './user-chat-screen.component.scss'
@@ -37,16 +39,17 @@ export class UserChatScreenComponent implements OnInit {
 
 
 
-  private fetchAllUsers() {
+  public fetchAllUsers() {
     this.chatService.fetchUniqueUsers(this.phoneNumberId).subscribe({
       next: (response: any) => {
         if (response.statusCode == 200) {
           console.log("fetch all users response :: ", response);
-          this.users = response.datalist.map((number: any) => ({
-            name: number, // Use phone number as name for now
-            number,
-            profilePic: 'https://www.volkmatrix.com/icons/logo_white.png'
-          }));
+          // this.users = response.datalist.map((number: any) => ({
+          //   name: number, // Use phone number as name for now
+          //   number,
+          //   profilePic: 'https://www.volkmatrix.com/icons/logo_white.png'
+          // }));
+          this.users = response.datalist;
 
           // Set selectedUser after users are fetched
           this.selectedUser = this.users[0] || null; // Set to the first user or null if no users
@@ -62,7 +65,7 @@ export class UserChatScreenComponent implements OnInit {
 
   fetchChatMessages(userId: any) {
     console.log("fetchChatMessages :: ", userId);
-    this.chatService.fetchUsersChat(this.phoneNumberId,userId.number ).subscribe({
+    this.chatService.fetchUsersChat(this.phoneNumberId,userId.userMobile ).subscribe({
       next: (response: any) => {
         if (response.statusCode === 200) {
           this.chatMessages = response.datalist;
@@ -95,7 +98,16 @@ export class UserChatScreenComponent implements OnInit {
   getOriginalMessageText(reactedOnMsgId: string): string {
     console.log("serarching Reacted message id ::: ")
     const originalMessage = this.chatMessages.find(msg => msg.responseMsgId === reactedOnMsgId);
-    return originalMessage ? originalMessage.msgText  ||  originalMessage.templateName : 'Message not found';
+   const finalMessage = originalMessage ? originalMessage.msgText  ||  originalMessage.templateName : 'Message not' +
+      ' found';
+
+   if (finalMessage.length > 20) {
+   return finalMessage.substring(0,20);
+   }else {
+     return finalMessage;
+   }
+
+
   }
 
 

@@ -3,8 +3,8 @@
   <div class="row">
     <section class="discussions">
       <div class="discussion search">
-        <div class="w-100">
-          <div class="row justify-content-center align-items-center">
+        <div class="row w-100 justify-content-center align-items-center">
+          <div class=" col-8 justify-content-center align-items-center">
             <div class="form">
               <label for="searchInput" class="visually-hidden">Search Users</label>
               <input
@@ -16,6 +16,10 @@
               />
             </div>
           </div>
+          <div class="col-3" >
+            <button class="btn btn-dark" (click)="fetchAllUsers()">
+              <i class="bi bi-arrow-clockwise"></i></button>
+          </div>
         </div>
       </div>
 
@@ -24,8 +28,8 @@
           <div class="online"></div>
         </div>
         <div class="desc-contact">
-          <p class="name">{{ user.name }}</p>
-          <p class="message">{{ user.number }}</p>
+          <p class="name">{{ user.userName }}</p>
+          <p class="message">{{ user.userMobile }}</p>
         </div>
       </div>
     </section>
@@ -33,7 +37,7 @@
     <section class="chat-container">
       <div class="header-chat">
         <i class="icon fa fa-user-o" aria-hidden="true" aria-label="User Icon"></i>
-        <p class="name">{{ selectedUser?.name || 'Select a user' }}</p>
+        <p class="name">{{ selectedUser?.userName || 'Select a user' }}</p>
         <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true" aria-label="More Options"></i>
       </div>
 
@@ -60,7 +64,15 @@
 
           <div *ngIf="message.messageBy === 'user' " class="message message-user">
             <div class="message-bubble " *ngIf="!message.reactedOnMsgId">
-              <p class="text" *ngIf="message.msgText != null && message.msgText != '' ">{{ message.msgText }}</p>
+            <!--  <p class="text"
+                 *ngIf="message.msgText != null && message.msgText != '' ">{{ message.msgText }}</p>-->
+<!--              <p class="text" *ngIf="message.msgText != null && message.msgText != ''">{{ message.msgText}}</p>-->
+
+              <p class="text"
+                 *ngIf="message.msgText != null && message.msgText != ''"
+                 [innerHTML]="message.msgText | whatsappTextFormatter">
+              </p>
+
               <ng-container *ngIf="message.mediaType">
                 <ng-container *ngIf="message.mediaType === 'image'">
                   <img [src]="message.mediaFileUrl" alt="Image" class="chat-media"/>
